@@ -1,0 +1,24 @@
+[package]
+name = "doug_rkyv_test"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rkyv = { version = "0.7.39", default-features = false, features = ["std"] }
+memmap2 = "0.5.5"
+layout21 = { git = "https://github.com/colepoirier/Layout21" }
+geo = "0.22.1"
+bincode = "1.3.3"
+serde_derive = "1.0.143"
+serde = "1.0.143"
+
+
+[features]
+default = ["rkyv_32"]
+rkyv_32 = ["rkyv/size_32"]
+rkyv_64 = ["rkyv/size_64"]
+
+
+[profile.release]
+# lto = "fat"
+# debug = true
